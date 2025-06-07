@@ -1,0 +1,85 @@
+.container {
+  background-color: var(--surface);
+  color: var(--text-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logoIcon {
+  width: 28px;
+  height: 28px;
+  color: var(--primary);
+}
+
+.logoText {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.buttons {
+  display: flex;
+  gap: 2%;
+  list-style: none;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 8px;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.navItem:hover {
+  background-color: var(--msg-user);
+}
+
+.logout {
+  color: var(--error);
+}
+
+.logout:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.hamburger {
+  display: none;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .buttons {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}

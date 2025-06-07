@@ -12,7 +12,13 @@ const PORT = process.env.PORT;
 cloudinarySetup();
 
 const app = express();
-app.use(cors());
+const allowedOrigin = "http://localhost:5173";
+app.use(
+  cors({
+    origin: allowedOrigin,
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(cookieParser());
 

@@ -34,10 +34,13 @@ const signup = async (req, res) => {
       generateToken(newUser._id, res);
       await newUser.save();
       return res.status(201).json({
-        id: newUser._id,
-        fullName: newUser.fullName,
-        email: newUser.email,
-        profilePic: newUser.profilePic,
+        message: "Signup successfull",
+        user: {
+          id: newUser._id,
+          fullName: newUser.fullName,
+          email: newUser.email,
+          profilePic: newUser.profilePic,
+        },
       });
     } else {
       return res.status(400).json("Invalid user data");
@@ -66,10 +69,13 @@ const login = async (req, res) => {
 
     generateToken(user._id, res);
     return res.status(200).json({
-      id: user._id,
-      fullName: user.fullName,
-      email: user.email,
-      profilePic: user.profilePic,
+      message: "Login successful",
+      user: {
+        id: user._id,
+        fullName: user.fullName,
+        email: user.email,
+        profilePic: user.profilePic,
+      },
     });
   } catch (error) {
     console.log("Error in login controller", error.message);
