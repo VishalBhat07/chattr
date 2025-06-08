@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { axiosInstance } from "../lib/axios";
 
 export const useMessageStore = create((set, get) => ({
+  sendingMessage: false,
   selectedChatUser: null,
   loadingMessages: false,
   users: null,
@@ -18,4 +19,26 @@ export const useMessageStore = create((set, get) => ({
   },
 
   setSelectedChatUser: (user) => set({ selectedChatUser: user }),
+
+  sendMessage: async (receiverId, text, image) => {
+    try {
+      set({ sendingMessage: true });
+      const formData = new FormData();
+      formData.append("text", text);
+      formData.append("image", image);
+      const res = await axiosInstance.post(
+        `/messages/send/${receiverId}`,
+        formData,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
+      console.log(res.data);
+      set({ sendingMessage: false });
+    } catch (error) {
+      set({ sendingMessage: false });
+      console.log(error);
+    }
+  },
+
 }));
