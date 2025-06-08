@@ -1,0 +1,79 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  height: 72px; /* Ensures alignment and height consistency */
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.input {
+  flex: 1;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  font-size: 1rem;
+  background: var(--input-bg);
+  color: var(--text-primary);
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+.input:focus {
+  border-color: var(--primary);
+}
+
+.sendButton {
+  padding: 10px 20px;
+  height: 42px;
+  background: var(--primary);
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.sendButton:hover {
+  background: var(--primary-hover);
+}
+
+.imageIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 1.3rem;
+  transition: color 0.2s ease;
+}
+
+.imageIcon:hover {
+  color: var(--primary-hover);
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.preview {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.preview img {
+  max-width: 40px;
+  max-height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}

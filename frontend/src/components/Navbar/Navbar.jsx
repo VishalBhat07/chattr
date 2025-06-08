@@ -12,10 +12,12 @@ import {
 } from "lucide-react";
 import Sidebar from "../Sidebar/Sidebar";
 import styles from "./Navbar.module.css";
+import { useMessageStore } from "../../store/useMessageStore";
 
 const Navbar = () => {
   const { authUser, logout } = useAuthStore();
   const { theme, toggleTheme } = useThemeStore();
+  const { setSelectedChatUser } = useMessageStore();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const [mounted, setMounted] = useState(false);
@@ -52,7 +54,10 @@ const Navbar = () => {
           {authUser && (
             <li
               className={`${styles.navItem} ${styles.logout}`}
-              onClick={() => logout()}
+              onClick={() => {
+                setSelectedChatUser(null);
+                logout();
+              }}
             >
               <LogOut className={styles.icon} />
               <span>Logout</span>

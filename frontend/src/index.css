@@ -13,7 +13,7 @@
   --msg-other: #f3f4f6;
   --error: #ef4444;
   --info: #3b82f6;
-  --border: #e5e5e5;
+  --border: #989393;
 }
 
 /* Add to [data-theme="dark"] */
@@ -31,4 +31,5 @@
   --msg-other: #374151;
   --error: #f87171;
   --info: #60a5fa;
+  --border: #8b8686;
 }

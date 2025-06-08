@@ -1,0 +1,22 @@
+.container {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  background-color: var(--msg-other);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) transparent;
+}
+
+.container::-webkit-scrollbar {
+  width: 6px;
+}
+.container::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 3px;
+}
+.container::-webkit-scrollbar-track {
+  background: transparent;
+}

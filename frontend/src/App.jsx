@@ -1,20 +1,21 @@
+import { useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import { useAuthStore } from "./store/useAuthStore";
-import { useEffect } from "react";
-import { LucideLoader } from "lucide-react";
-import { Toaster } from "react-hot-toast";
 import { useThemeStore } from "./store/useThemeStore";
+import { Toaster } from "react-hot-toast";
+import Loader from "./components/Loader/Loader";
 
 function App() {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
-  const { theme } = useThemeStore;
+  const { theme } = useThemeStore();
+
   useEffect(() => {
     checkAuth();
   }, [checkAuth]);
@@ -24,11 +25,7 @@ function App() {
   }, [theme]);
 
   if (isCheckingAuth && !authUser) {
-    return (
-      <div className="loader">
-        <LucideLoader />
-      </div>
-    );
+    return <Loader />;
   }
 
   return (

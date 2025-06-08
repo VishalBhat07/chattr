@@ -1,0 +1,19 @@
+.container {
+  height: 64px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.pfp {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 12px;
+  border: 2px solid var(--primary);
+}

@@ -24,7 +24,7 @@ const Signup = () => {
     signup(formData);
   };
 
-  return (
+  return (    
     <div className={styles.container}>
       {/* Left form section */}
       <div className={styles.left}>
