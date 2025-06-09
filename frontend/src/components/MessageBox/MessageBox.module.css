@@ -40,6 +40,7 @@
   justify-content: center;
   transition: background 0.2s ease;
   flex-shrink: 0;
+  margin-bottom: 10px;
 }
 
 .sendButton:hover {

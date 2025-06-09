@@ -2,10 +2,12 @@ import { create } from "zustand";
 import { axiosInstance } from "../lib/axios";
 
 export const useMessageStore = create((set, get) => ({
+  gettingMessages: false,
   sendingMessage: false,
   selectedChatUser: null,
   loadingMessages: false,
   users: null,
+  chats: null,
 
   fetchUsers: async () => {
     try {
@@ -41,4 +43,21 @@ export const useMessageStore = create((set, get) => ({
     }
   },
 
+  getMessages: async (receiverId) => {
+    try {
+      set({ gettingMessages: true });
+
+      const res = await axiosInstance.get(`/messages/${receiverId}`);
+      const messages = res.data;
+      const sortedList = messages.sort(
+        (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+      );
+
+      set({ chats: sortedList });
+      set({ gettingMessages: false });
+    } catch (error) {
+      set({ gettingMessages: false });
+      console.log(error);
+    }
+  },
 }));

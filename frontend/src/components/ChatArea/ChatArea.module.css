@@ -1,13 +1,21 @@
-.container {
-  flex: 1;
-  padding: 16px;
-  overflow-y: auto;
-  background-color: var(--msg-other);
+.wrapper {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  flex: 1;
+  min-height: 0;
+  position: relative;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 20px;
+  overflow-y: auto;
+  background-color: var(--background);
   scrollbar-width: thin;
   scrollbar-color: var(--primary) transparent;
+  min-height: 0;
 }
 
 .container::-webkit-scrollbar {
@@ -19,4 +27,74 @@
 }
 .container::-webkit-scrollbar-track {
   background: transparent;
+}
+
+/* Message styling remains unchanged */
+.message {
+  max-width: 60%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  display: inline-block;
+  word-break: break-word;
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.mine {
+  align-self: flex-end;
+  background-color: var(--primary);
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.theirs {
+  align-self: flex-start;
+  background-color: var(--secondary);
+  color: white;
+  border-bottom-left-radius: 4px;
+}
+
+.text {
+  font-size: 15px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.image {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 10px;
+  margin-top: 8px;
+  object-fit: contain;
+}
+
+.scrollButton {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.scrollButton:hover {
+  background-color: var(--primary-dark);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
