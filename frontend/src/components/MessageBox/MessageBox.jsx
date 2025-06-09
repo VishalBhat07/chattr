@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import styles from "./MessageBox.module.css";
-import { Image } from "lucide-react"; // Image icon
+import { Image, LoaderIcon } from "lucide-react"; // Image icon
 import { useMessageStore } from "../../store/useMessageStore";
 import toast from "react-hot-toast";
-import Loader from "../../components/Loader/Loader";
 
 const MessageBox = () => {
   const [image, setImage] = useState(null);
@@ -66,7 +65,7 @@ const MessageBox = () => {
           Send
         </button>
       ) : (
-        <Loader />
+        <LoaderIcon />
       )}
     </div>
   );

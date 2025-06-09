@@ -43,6 +43,23 @@
   margin-bottom: 10px;
 }
 
+.sendingButton {
+  padding: 8px 25px;
+  height: 35px;
+  background: var(--primary);
+  color: white;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+  flex-shrink: 0;
+  margin-bottom: 10px;
+}
+
 .sendButton:hover {
   background: var(--primary-hover);
 }

@@ -50,6 +50,18 @@ const ChatArea = () => {
         ref={containerRef}
         onScroll={handleScroll}
       >
+        {chats?.length === 0 && selectedChatUser && (
+          <div className={styles.emptyMessageBubble}>
+            <p>
+              Start chatting with <strong>{selectedChatUser.fullName}</strong>
+            </p>
+            <p>
+              Joined on{" "}
+              {new Date(selectedChatUser.createdAt).toLocaleDateString()}
+            </p>
+          </div>
+        )}
+
         {chats?.map((chat) => {
           const isMine = chat.senderId === authUser.id;
           return (
@@ -63,6 +75,12 @@ const ChatArea = () => {
                 <img src={chat.image} alt="sent" className={styles.image} />
               )}
               {chat.text && <p className={styles.text}>{chat.text}</p>}
+              <span className={styles.timestamp}>
+                {new Date(chat.createdAt).toLocaleTimeString([], {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}
+              </span>
             </div>
           );
         })}
